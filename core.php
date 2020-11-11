@@ -1,5 +1,55 @@
 <?php
 
+// function for  activities
+
+function activities(){
+    include 'admin/db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM activities ");
+
+    while($row = mysqli_fetch_array($sel)){
+
+        echo'<article class="one-fourth">
+        <figure><a href="hotel.html" title=""><img src="upload/'.$row['pic'].'" alt=""  style="width:100%; height:200px!important;"/></a></figure>
+        <div class="details">
+            <h3>'.$row['title'].'
+                <span class="stars">
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                </span>
+            </h3>
+            <!-- <span class="address">London  •  <a href="hotels.html#">Show on map</a></span> -->
+            <!--<span class="rating"> 8 /10</span>-->
+            <span class="price">Price per day  <em>$ '.$row['price'].'</em> </span>
+            <div class="description">
+                <p>'.$row['description'].' </p>
+            </div>
+            <a href="ba1.php" title="Book now" class="gradient-button">Book now</a>
+        </div>
+    </article>';
+
+    }
+}
+
+// function for Activities slideshow
+function Slideactivities(){
+    include 'admin/db.php';
+
+    $sel = mysqli_query($conn,"SELECT * FROM activities ");
+
+    while($row = mysqli_fetch_array($sel)){
+
+        echo '
+        <li data-thumb="upload/'.$row['pic'].'"> 
+             <img src="upload/'.$row['pic'].'"  style= "width:100%;" alt="" />
+        </li>
+    ';
+    }
+}
+
+// function for header bar
+
 function hbar(){
     echo'<header class="header">
     <div class="wrap">
