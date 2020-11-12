@@ -2150,6 +2150,8 @@
     <script src="app-assets/js/scripts/datatables/datatable.min.js"></script>
     <!-- END: Page JS-->
 
+    <script src="ajax.js"></script>
+
   </body>
   <!-- END: Body-->
 </html>

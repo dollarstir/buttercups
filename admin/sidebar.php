@@ -44,32 +44,22 @@ echo ' <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" d
         </li>
       </ul>
     </li>
-    <li class=" nav-item"><a href="form-layout.html#"><i class="bx bx-building"></i><span class="menu-title" data-i18n="Starter kit">Starter kit</span></a>
+    <li class=" nav-item"><a href="form-layout.html#"><i class="bx bx-building"></i><span class="menu-title" data-i18n="Starter kit">Tour Services</span></a>
       <ul class="menu-content">
-        <li><a href="starter-kit/ltr/vertical-menu-boxicons-template/sk-layout-1-column.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="1 column">1 column</span></a>
+        <li><a href="add-tour.php"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="1 column">Add Tour Service</span></a>
         </li>
-        <li><a href="starter-kit/ltr/vertical-menu-boxicons-template/sk-layout-2-columns.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="2 columns">2 columns</span></a>
+        <li><a href="view-tour.php"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="2 columns">View Tour Services</span></a>
         </li>
-        <li><a href="starter-kit/ltr/vertical-menu-boxicons-template/sk-layout-fixed-navbar.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Fixed navbar">Fixed navbar</span></a>
-        </li>
-        <li><a href="starter-kit/ltr/vertical-menu-boxicons-template/sk-layout-fixed.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Fixed layout">Fixed layout</span></a>
-        </li>
-        <li><a href="starter-kit/ltr/vertical-menu-boxicons-template/sk-layout-static.html"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Static layout">Static layout</span></a>
-        </li>
+       
       </ul>
     </li>
-    <li class=" nav-item"><a href="form-layout.html#"><i class="bx bx-lock-open-alt"></i><span class="menu-title" data-i18n="Authentication">Authentication</span></a>
+    <li class=" nav-item"><a href="form-layout.html#"><i class="bx bx-file"></i><span class="menu-title" data-i18n="Authentication">Accommodation</span></a>
       <ul class="menu-content">
-        <li><a href="auth-login.html" target="_blank"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Login">Login</span></a>
+        <li><a href="add-accomodation.php"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Login">Add Accommodation</span></a>
         </li>
-        <li><a href="auth-register.html" target="_blank"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Register">Register</span></a>
+        <li><a href="view-accomodation.php"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Register">View-Accomodation</span></a>
         </li>
-        <li><a href="auth-forgot-password.html" target="_blank"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Forgot Password">Forgot Password</span></a>
-        </li>
-        <li><a href="auth-reset-password.html" target="_blank"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Reset Password">Reset Password</span></a>
-        </li>
-        <li><a href="auth-lock-screen.html" target="_blank"><i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Lock Screen">Lock Screen</span></a>
-        </li>
+        
       </ul>
     </li>
     <li class=" nav-item"><a href="form-layout.html#"><i class="bx bx-share-alt"></i><span class="menu-title" data-i18n="Miscellaneous">Miscellaneous</span></a>

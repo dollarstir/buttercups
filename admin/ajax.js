@@ -11,8 +11,15 @@ $(function(){
         $('#myalert').fadeOut(6000);
     };
 
+    function deleteitem(response){
+
+        alert(response);
+        location.reload(true);
+
+    }
 
 
+// adding activity
     $("#actfrm").submit(function (e) {
 
         e.preventDefault();
@@ -37,31 +44,198 @@ $(function(){
     });
 
    
+    // Deleting activity
 
 
-    $(".btndel").click(function(e){
+    $(".btndel").click(function(ev){
 
-         var dd =this.id
-         alert (dd);
+        var dd = this.id;
+        ev.preventDefault();
+        var info = 'id=' + dd;
+
+        // alert(dd);
+        var delopt = {
+            url: "del.php?myid="+dd,
+            type: 'post',
+            data :info,
+            
+            // beforeSend: myloader,
+            success: deleteitem
+
+        }
+
+        $.ajax(delopt);
+    })
+
+    // updating activity
+    $("#uptactfrm").submit(function (e) {
 
         e.preventDefault();
 
-        // var delopt = {
+        var mf = {
+            url: "actions.php?dollar=updateactivity",
+            type: 'post',
+            data : new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: myloader,
+            success: myresponse
 
-        //     url: "actions.php?dollar=delact",
-        //     type: 'post',
-        //     data : {myid: dd },
-        //     cache: false,
-        //     contentType: false,
-        //     processData: false,
-        //     beforeSend: myloader,
-        //     success: myresponse
+
+        };
+
+        $.ajax(mf);
+        
+
+        
+    });
 
 
-        // };
+    // adding of tour service
+
+    $("#tourfrm").submit(function (e) {
+
+        e.preventDefault();
+
+        var mf = {
+            url: "actions.php?dollar=addtour",
+            type: 'post',
+            data : new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: myloader,
+            success: myresponse
+
+
+        };
+
+        $.ajax(mf);
+        
+
+        
+    });
+
+
+    // updating Tour
+    $("#upttourfrm").submit(function (e) {
+
+        e.preventDefault();
+
+        var mf = {
+            url: "actions.php?dollar=updatetourserv",
+            type: 'post',
+            data : new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: myloader,
+            success: myresponse
+
+
+        };
+
+        $.ajax(mf);
+        
+
+        
+    });
+
+// deleting tour service
+    $(".btndeltour").click(function(ev){
+
+        var dd = this.id;
+        ev.preventDefault();
+        var info = 'id=' + dd;
+
+        // alert(dd);
+        var delopt = {
+            url: "deltour.php?myid="+dd,
+            type: 'post',
+            data :info,
             
-        // $.ajax(delopt);
+            // beforeSend: myloader,
+            success: deleteitem
 
+        }
+
+        $.ajax(delopt);
+    })
+
+
+    
+    $("#accfrm").submit(function (e) {
+
+        e.preventDefault();
+
+        var mf = {
+            url: "actions.php?dollar=addacomo",
+            type: 'post',
+            data : new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: myloader,
+            success: myresponse
+
+
+        };
+
+        $.ajax(mf);
+        
+
+        
+    });
+
+
+
+    // Updating Accomodation
+
+    $("#uptaccfrm").submit(function (e) {
+
+        e.preventDefault();
+
+        var mf = {
+            url: "actions.php?dollar=updateaccserv",
+            type: 'post',
+            data : new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: myloader,
+            success: myresponse
+
+
+        };
+
+        $.ajax(mf);
+        
+
+        
+    });
+
+
+    // Deleting Accomodation 
+
+    $(".btndelacomo").click(function(ev){
+
+        var dd = this.id;
+        ev.preventDefault();
+        var info = 'id=' + dd;
+
+        // alert(dd);
+        var delopt = {
+            url: "delacomo.php?myid="+dd,
+            type: 'post',
+            data :info,
+            
+            // beforeSend: myloader,
+            success: deleteitem
+
+        }
+
+        $.ajax(delopt);
     })
 
     

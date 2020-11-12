@@ -203,6 +203,110 @@ function hbar(){
 }
 
 
+
+// Displaying accomodation 
+
+function Accomo(){
+    include 'admin/db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM acomo ");
+
+    while($row = mysqli_fetch_array($sel)){
+
+        echo'<article class="one-third">
+        <figure><a href="#" title=""><img src="upload/'.$row['pic'].'" alt="" /></a></figure>
+        <div class="details">
+            <h3>'.$row['title'].' 
+                <span class="stars">
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                </span>
+            </h3>
+            <span class="address">Type :    <a href="#">'.$row['ltype'].'</a></span>
+            <!-- <span class="rating"> 8 /10</span> -->
+            <span class="price">Price   <em>$ '.$row['price'].'</em> </span>
+            <div class="description">
+                <p>
+                    <ul>';
+
+                    $string=$row['description'];
+                    
+
+                    $string=explode(',',$string);
+                   
+                    foreach($string as $val)
+                    {
+                         echo '<li>'. $val.'</li>';
+                        $val=explode('. ',$val);
+    // mysql_query('INSERT INTO yourtable (col_number,col_name) VALUES ("'.$val[0].'.","'.$val[1].'")';
+                    }
+    
+                        
+                    echo'</ul>
+                     <a href="#">More info</a>
+                </p>
+            </div>
+            <a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
+        </div>
+    </article>';
+
+    }
+}
+
+
+// Display Tour services 
+
+
+function Tour(){
+    include 'admin/db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM tour ");
+
+    while($row = mysqli_fetch_array($sel)){
+
+        echo'<article class="one-third">
+        <figure><a href="#" title=""><img src="upload/'.$row['pic'].'" alt="" /></a></figure>
+        <div class="details">
+            <h3>'.$row['title'].' 
+                <span class="stars">
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                    <i class="material-icons">&#xE838;</i>
+                </span>
+            </h3>
+            <!--<span class="address">Type :    <a href="#"></a></span>-->
+            <!-- <span class="rating"> 8 /10</span> -->
+            <span class="price">Price   <em>$ '.$row['price'].'</em> </span>
+            <div class="description">
+                <p>
+                    <ul>';
+
+                    $string=$row['description'];
+                    
+
+                    $string=explode(',',$string);
+                   
+                    foreach($string as $val)
+                    {
+                         echo '<li>'. $val.'</li>';
+                        $val=explode('. ',$val);
+    // mysql_query('INSERT INTO yourtable (col_number,col_name) VALUES ("'.$val[0].'.","'.$val[1].'")';
+                    }
+    
+                        
+                    echo'</ul>
+                     <a href="#">More info</a>
+                </p>
+            </div>
+            <a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
+        </div>
+    </article>';
+
+    }
+}
+
+
 function ft(){
     echo '<footer class="footer">
     <div class="wrap">
