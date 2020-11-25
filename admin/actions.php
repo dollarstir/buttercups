@@ -125,6 +125,31 @@ if(isset($_GET['dollar'])){
     
         }
 
+        if($_GET['dollar']=="addlocation"){
+        
+            include 'db.php';
+            extract($_POST);
+            // $desco =mysqli_real_escape_string($conn,$description);
+            if (empty($title)) {
+                echo '<div class="alert alert-danger mb-2" role="alert" id="myalert">
+                    Location name  cannot be empty
+                    </div>';
+                # code...
+            }
+            elseif(empty($_FILES['image']['name'])){
+    
+                echo '<div class="alert alert-danger mb-2" role="alert" id="myalert">
+                browse image for Location   
+                </div>';
+    
+            }
+            else{
+                $dd = date("jS F, Y");
+    
+                Addlocation($title);
+            }
+        }
+
 
 }
 

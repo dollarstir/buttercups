@@ -164,7 +164,7 @@ $(function(){
     })
 
 
-    
+    // Add Accomodation
     $("#accfrm").submit(function (e) {
 
         e.preventDefault();
@@ -227,6 +227,49 @@ $(function(){
         // alert(dd);
         var delopt = {
             url: "delacomo.php?myid="+dd,
+            type: 'post',
+            data :info,
+            
+            // beforeSend: myloader,
+            success: deleteitem
+
+        }
+
+        $.ajax(delopt);
+    })
+
+    $("#locfrm").submit(function (e) {
+
+        e.preventDefault();
+
+        var mf = {
+            url: "actions.php?dollar=addlocation",
+            type: 'post',
+            data : new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: myloader,
+            success: myresponse
+
+
+        };
+
+        $.ajax(mf);
+        
+
+        
+    });
+
+    $(".btndelloc").click(function(ev){
+
+        var dd = this.id;
+        ev.preventDefault();
+        var info = 'id=' + dd;
+
+        // alert(dd);
+        var delopt = {
+            url: "delloc.php?myid="+dd,
             type: 'post',
             data :info,
             

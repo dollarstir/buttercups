@@ -382,4 +382,172 @@ function updateaccomodation($id,$title,$price,$desco,$oldpic,$dd,$ltype){
     }
 }
 
+// Adding Location
+
+function  Addlocation($title){
+
+    $ref = "faci".rand(111111111,999999999);
+
+    include 'db.php';
+    $fileinfo = PATHINFO($_FILES['image']['name']);
+    $newfilename = $fileinfo['filename']."-".time().".".$fileinfo['extension'];
+
+    $targetDir = "../upload/"; 
+    $allowTypes = array('jpg','png','jpeg','gif'); 
+     
+    $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = ''; 
+    $fileNames = array_filter($_FILES['mpics']['name']); 
+
+    foreach($_FILES['mpics']['name'] as $key=>$val){ 
+        // File upload path 
+        $fileName = basename($_FILES['mpics']['name'][$key]); 
+        $targetFilePath = $targetDir . $fileName; 
+         
+        // Check whether file type is valid 
+        $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+        if(in_array($fileType, $allowTypes)){ 
+            // Upload file to server 
+            if(move_uploaded_file($_FILES["mpics"]["tmp_name"][$key], $targetFilePath)){ 
+                // Image db insert sql 
+                $insertValuesSQL .= "('".$fileName."','$ref'),"; 
+            }else{ 
+                $errorUpload .= $_FILES['mpics']['name'][$key].' | '; 
+            } 
+        }else{ 
+            $errorUploadType .= $_FILES['mpics']['name'][$key].' | '; 
+        } 
+    } 
+
+    $insertValuesSQL = trim($insertValuesSQL, ','); 
+
+    if(move_uploaded_file($_FILES['image']['tmp_name'],'../upload/'.$newfilename)){
+        $pic =  $newfilename;
+        $dd = date("jS F, Y");
+        $ins = mysqli_query($conn,"INSERT INTO location (title,pic,ref,dateadded) VALUES('$title','$pic','$ref','$dd')");
+        $insert = mysqli_query($conn,"INSERT INTO locpics (pic,ref) VALUES $insertValuesSQL");
+        if ($ins &&  $insert) {
+            echo '<div class="alert alert-success mb-2" role="alert" id="myalert">
+            Accomodation added successfully
+            </div>';
+            # code...
+        }
+        else{
+
+            echo '<div class="alert alert-danger mb-2" role="alert" id="myalert">
+            error 
+            </div>';
+        }
+    }
+    else
+    {
+        echo '<div class="alert alert-danger mb-2" role="alert" id="myalert">
+        Failed to upload image  
+        </div>';
+
+    }
+
+}
+
+function Locations(){
+    include 'db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM location");
+
+    while ($row=mysqli_fetch_array($sel)) {
+
+        echo '<tr>
+        <td>'.$row['title'].'</td>
+        
+        <td><img src="../upload/'.$row['pic'].'" style="width:150px;height:150px;" alt=""/></td>
+        <td>'.$row['dateadded'].'</td>
+        <td>  <button id="'.$row['id'].'"  title="Delete" type="button" class="btn btn-icon btn-light-danger mr-1 mb-1 btndelloc">
+        <i class="bx bx-trash"></i></button></td>
+    </tr>';
+        # code...
+    }
+}
+
+
+
+// Displaying All Bookings
+
+function Bookings(){
+    include 'db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM booking WHERE status ='pending' ");
+
+    while ($row=mysqli_fetch_array($sel)) {
+        
+
+        echo '<tr>
+        <td>'.$row['myref'].'</td>
+        <td>'.$row['fname'].' '.$row['lname'].'</td>
+        <td>'.$row['days'].'</td>
+        <td>'.$row['type'].'</td>
+        <td>'.$row['title'].'</td>
+        <td><img src="../upload/'.$row['pic'].'" style="width:150px;height:150px;" alt=""/></td>
+        <td>'.$row['status'].'</td>
+        <td><a  href ="edit-booking.php?id='.$row['id'].'&days='.$row['days'].'" title="Start"  class="btn btn-icon rounded-circle btn-outline-success mr-1 mb-1"><i class="bx bx-check bx-spin-hover"></i>Start</a>  <a id="'.$row['id'].'" href="booking-detail.php?id='.$row['id'].'&status=pending"  title="View"  class="btn btn-icon btn-light-primary   mr-1 mb-1 ">
+        <i class="bx bx-show bx-tada-hover"></i>View</a></td>
+    </tr>';
+        # code...
+    }
+}
+
+// Active Booking
+function ActiveBookings(){
+    include 'db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM booking");
+
+    while ($row=mysqli_fetch_array($sel)) {
+        if(strtotime(date("Y/m/d")) <= strtotime($row['enddate'])){
+
+            $status = "Active";
+            echo '<tr>
+        <td>'.$row['myref'].'</td>
+        <td>'.$row['fname'].' '.$row['lname'].'</td>
+        <td>'.$row['days'].'</td>
+        <td>'.$row['type'].'</td>
+        <td>'.$row['title'].'</td>
+        <td><img src="../upload/'.$row['pic'].'" style="width:150px;height:150px;" alt=""/></td>
+        <td><span class="badge badge-light-success">'.$status.'</span></td>
+        <td> <a id="'.$row['id'].'" href="booking-detail.php?id='.$row['id'].'&status='.$status.'"  title="View"  class="btn btn-icon btn-light-primary   mr-1 mb-1 ">
+        <i class="bx bx-show bx-tada-hover"></i>View</a></td>
+    </tr>';
+        }
+
+
+        
+        # code...
+    }
+}
+
+
+// Expired Booking
+function ExpiredBookings(){
+    include 'db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM booking WHERE status='Active' ");
+
+    while ($row=mysqli_fetch_array($sel)) {
+        if(strtotime(date("Y/m/d")) > strtotime($row['enddate'])){
+
+            $status = "Expired";
+            echo '<tr>
+        <td>'.$row['myref'].'</td>
+        <td>'.$row['fname'].' '.$row['lname'].'</td>
+        <td>'.$row['days'].'</td>
+        <td>'.$row['type'].'</td>
+        <td>'.$row['title'].'</td>
+        <td><img src="../upload/'.$row['pic'].'" style="width:150px;height:150px;" alt=""/></td>
+        <td><span class="badge badge-light-danger">'.$status.'</span></td>
+        <td> <a id="'.$row['id'].'" href="booking-detail.php?id='.$row['id'].'&status='.$status.'"  title="View"  class="btn btn-icon btn-light-primary   mr-1 mb-1 ">
+        <i class="bx bx-show bx-tada-hover"></i>View</a></td>
+    </tr>';
+        }
+
+
+        
+        # code...
+    }
+}
+
+
 ?>

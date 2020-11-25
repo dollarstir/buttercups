@@ -11,7 +11,7 @@
 	<meta name="description" content="Buttercups - Online Booking">
     <meta name="author" content="favorchapel.com">
     
-    <title>Buttercup Tour - Activities </title>
+    <title>Buttercup Tour - Locations </title>
     <link rel="apple-touch-icon" href="https://www.pixinvent.com/demo/frest-clean-bootstrap-admin-dashboard-template/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
@@ -1208,8 +1208,8 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Price</th>
-                                        <th>description</th>
+                                        <!-- <th>Price</th> -->
+                                        <!-- <th>description</th> -->
                                         <th>Picture</th>
                                         <th>Date Added</th>
                                         <th>Action</th>
@@ -1217,7 +1217,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php activities();?>
+                                    <?php Locations();?>
                                     <!-- <tr>
                                         <td>Tiger Nixon</td>
                                         <td>System Architect</td>
@@ -1231,8 +1231,8 @@
                                 <tfoot>
                                 <tr>
                                         <th>Name</th>
-                                        <th>Price</th>
-                                        <th>description</th>
+                                        <!-- <th>Price</th> -->
+                                        <!-- <th>description</th> -->
                                         <th>Picture</th>
                                         <th>Date Added</th>
                                         <th>Action</th>

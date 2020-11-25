@@ -46,7 +46,7 @@
 
     <!-- BEGIN: Header-->
     <div class="header-navbar-shadow"></div>
-    <nav class="header-navbar main-header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top ">
+    <!-- <nav class="header-navbar main-header-navbar navbar-expand-lg navbar navbar-with-menu fixed-top ">
       <div class="navbar-wrapper">
         <div class="navbar-container content">
           <div class="navbar-collapse" id="navbar-mobile">
@@ -206,7 +206,7 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
     <!-- END: Header-->
 
 

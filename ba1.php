@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="Book Your Travel - Online Booking HTML Template">
-	<meta name="description" content="Book Your Travel - Online Booking HTML Template">
-	<meta name="author" content="themeenergy.com">
+	<meta name="keywords" content="Butter cups - Online Booking ">
+	<meta name="description" content="Buttercups - Online Booking">
+	<meta name="author" content="favorchapel.com">
 	
 	<title>Buttercups Tour - Booking</title>
 	
@@ -23,8 +23,11 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<![endif]-->
+	
+	
 </head>
+
 <body>
 	<!--- loading animation -->
 	<div class="loading">
@@ -44,20 +47,46 @@
 			
 			<!--//breadcrumbs-->
 			
+
+			<?php
+
+					include 'admin/db.php';
+					$id= $_GET['actid'];
+					$sl= mysqli_query($conn,"SELECT * FROM activities WHERE id='$id'");
+					$ract = mysqli_fetch_array($sl);
+
+				?>
 			<div class="row">
 				<!--three-fourth content-->
 				<div class="three-fourth">
-					<form id="booking" method="post" action="booking-step2.html" class="static-content booking">
+					<form id="booking" method="post" action="ba2.php" class="static-content booking">
 						<fieldset>
 							<h2><span>01 </span>Traveller info</h2>
-							<div class="row">
+
+
+							<!-- <div class="row">
+								<div class="f-item one-half">
+									<label for="mpic">Passport size picture</label>
+									<input type="file" id="mpic" name="image"  onchange="readURL();"/>
+								</div>
+								<div class="f-item one-half">
+									<img src="images/avat.png" style="width:200px;height:200px;" id="pm" />
+								</div>
+							</div> -->
+
+
+							<div class="row">	
 								<div class="f-item one-half">
 									<label for="first_name">First name</label>
-									<input type="text" id="first_name" name="first_name" />
+									<input type="text" id="first_name" name="fname" />
+
+									<input type="hidden" id="first_name" name="price"  value="<?php echo $ract['price'];?>"/>
+									<input type="hidden" id="first_name" name="title"  value="<?php echo $ract['title'];?>"/>
+									<input type="hidden" id="first_name" name="type"  value="<?php echo $_GET['type'];?>"/>
 								</div>
 								<div class="f-item one-half">
 									<label for="last_name">Last name</label>
-									<input type="text" id="last_name" name="last_name" />
+									<input type="text" id="last_name" name="lname" />
 								</div>
 							</div>
 							
@@ -68,19 +97,22 @@
 								</div>
 								<div class="f-item one-half">
 									<label for="confirm_email">Confirm email address</label>
-									<input type="text" id="confirm_email" name="confirm_email" />
+									<input type="text" id="confirm_email" name="cmail" />
 								</div>
 								<span class="info">You’ll receive a confirmation email</span>
 							</div>
 							
 							<div class="row">
 								<div class="f-item one-half">
-									<label for="address">Street Address an Number</label>
-									<input type="text" id="address" name="address" />
+
+
+								<label for="country1">Country</label>
+								<select name="country" id="country1" class="text_field" ></select>
+									
 								</div>
 								<div class="f-item one-half">
-									<label for="city">Town / City</label>
-									<input type="text" id="city" name="city" />
+									<label for="state">Town / City</label>
+									<select name="state" id="state" class="text_field" ></select>
 								</div>
 							</div>
 							
@@ -89,16 +121,58 @@
 									<label for="zip">ZIP Code</label>
 									<input type="text" id="zip" name="zip" />
 								</div>
+
+								
 								<div class="f-item one-half">
-									<label for="country">Country</label>
-									<input type="text" id="country" name="country" />
+								<label for="address">Street Address </label>
+									<input type="text" id="address" name="address" />
 								</div>
+							</div>
+
+
+
+							 <div class="row">
+								<div class="f-item one-half">
+									<label for="zip">Arrival Date</label>
+									<input type="date" id="zip" name="arrival" />
+								</div>
+								<div class="f-item one-half">
+									<label for="countr">Departure Date</label>
+									<input type="date" id="countr" name="departure" />
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="f-item one-half">
+									<label for="zip">Arrival time</label>
+									<input type="time" id="zip" name="arrivaltime" />
+								</div>
+								<div class="f-item one-half">
+									<label for="count">Departure time</label>
+									<input type="time" id="count" name="departuretime" />
+								</div>
+							</div>
+
+							<div class="row">
+								
+
+								<div class="f-item one-half">
+									<label for="zip">Phone Number with Country code</label>
+									<input type="text" id="zip" name="contact" />
+								</div>
+
+								<div class="f-item one-half">
+									<label for="zip">number of days </label>
+									<input type="number" id="zip" name="days" />
+								</div>
+								
 							</div>
 							
 							<div class="row">
 								<div class="f-item full-width">
 									<label>Special requirements: <span>(Not Guaranteed)</span></label>
-									<textarea rows="10" cols="10"></textarea>
+									<textarea rows="10" cols="10" name="sp"></textarea>
 								</div>
 								<span class="info">Please write your requests in English.</span>
 							</div>
@@ -117,31 +191,23 @@
 				<aside class="one-fourth right-sidebar">
 					<!--Booking details-->
 					<article class="hotel-details booking-details">
-						<h1>Best ipsum hotel 
+						<h1><?php echo $ract['title'];?> 
 							<span class="stars">
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
 								<i class="material-icons">&#xE838;</i>
 							</span>
 						</h1>
-						<span class="address">Marylebone, London</span>
-						<span class="rating"> 8 /10</span>
+						<!-- <span class="address">Marylebone, London</span>
+						<span class="rating"> 8 /10</span> -->
 						<dl class="booking-info">
-							<dt>Rooms</dt>
-							<dd>Standard twin room</dd>
-							<dt>Room Description</dt>
-							<dd>Room only</dd>
-							<dt>Check-in Date</dt>
-							<dd>14-11-12</dd>
-							<dt>Check-out Date</dt>
-							<dd>15-11-12</dd>
-							<dt>Room(s)</dt>
-							<dd>1 night, 1 room, max. 2 people. </dd>
+							<dt>Price per Day </dt>
+							<dd>$ <?php echo $ract['price'];?></dd>
+							<dt>Item in cart</dt>
+							<dd><?php echo strtoupper($_GET['type']).' ('.$ract['title'].')';?></dd> 
+							
 						</dl>
-						<div class="price">
-							<p class="total">Total Price:  $ 55,00</p>
-							<p>VAT (20%) included</p>
-						</div>
+						
 					</article>
 					<!--//Booking details-->
 					
@@ -163,12 +229,57 @@
 	<!--footer-->
 	<?php ft();?>
 	<!---footer-->
+
+	<script>
+
+function readURL() {
+            var mp = document.getElementById('mpic');
+            if (mp.files && mp.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#pm')
+                        .attr('src', e.target.result)
+                        
+                };
+
+                reader.readAsDataURL(mp.files[0]);
+            }
+    }
+
+
+
+    function readscreenshot() {
+            var mp = document.getElementById('dp');
+            if (mp.files && mp.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#cm')
+                        .attr('src', e.target.result)
+                        
+                };
+
+                reader.readAsDataURL(mp.files[0]);
+            }
+    }
+    </script>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
 	<script type="text/javascript" src="js/jquery.slimmenu.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
+
+	<!-- Countries JS -->
+
+	<script type= "text/javascript" src = "countries.js"></script>
+	<script language="javascript">
+	// populateCountries("country"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+	populateCountries("country1","state");
+	// populateCountries("country2");
+</script>
+	
 	
 	<!-- TEMPLATE STYLES -->
 	<div id="template-styles">
@@ -187,6 +298,9 @@
 			</ul>
 		</div>
 	</div>
+
+	
 	<script src="js/styler.js"></script>
+	
 </body>
 </html>

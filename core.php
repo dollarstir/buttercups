@@ -25,7 +25,7 @@ function activities(){
             <div class="description">
                 <p>'.$row['description'].' </p>
             </div>
-            <a href="ba1.php" title="Book now" class="gradient-button">Book now</a>
+            <a href="ba1.php?actid='.$row['id'].'&type=activities" title="Book now" class="gradient-button">Book now</a>
         </div>
     </article>';
 
@@ -213,7 +213,7 @@ function Accomo(){
     while($row = mysqli_fetch_array($sel)){
 
         echo'<article class="one-third">
-        <figure><a href="#" title=""><img src="upload/'.$row['pic'].'" alt="" /></a></figure>
+        <figure><a href="#" title=""><img src="upload/'.$row['pic'].'" alt=""  style="width:100%; height:200px!important;"/></a></figure>
         <div class="details">
             <h3>'.$row['title'].' 
                 <span class="stars">
@@ -265,7 +265,7 @@ function Tour(){
     while($row = mysqli_fetch_array($sel)){
 
         echo'<article class="one-third">
-        <figure><a href="#" title=""><img src="upload/'.$row['pic'].'" alt="" /></a></figure>
+        <figure><a href="#" title=""><img src="upload/'.$row['pic'].'" alt=""  style="width:100%; height:200px!important;"/></a></figure>
         <div class="details">
             <h3>'.$row['title'].' 
                 <span class="stars">
@@ -305,6 +305,58 @@ function Tour(){
 
     }
 }
+
+
+// Llocations 
+
+function Location(){
+    include 'admin/db.php';
+    $sel = mysqli_query($conn,"SELECT * FROM location ");
+
+    while($row = mysqli_fetch_array($sel)){
+
+        echo'<article class="one-fourth">
+        <figure><a href="index.html#" title=""><img src="upload/'.$row['pic'].'" alt="" style="width:100%; height:200px!important;"/></a></figure>
+        <div class="details">
+            <h3>'.$row['title'].'</h3>
+            <a href="view-location.php?mid='.$row['id'].'" title="View details" class="gradient-button">View </a>
+        </div>
+    </article>';
+
+    }
+}
+
+
+function Popularloc($myid){
+    include 'admin/db.php';
+    $sp= mysqli_query($conn,"SELECT * FROM location LIMIT 5");
+    while ($row = mysqli_fetch_array($sp)) {
+
+        if($row['id']==$myid){
+
+        }
+        else{
+            echo'<li>
+            <a href="view-location.php?mid='.$row['id'].'">
+                <h3>'.$row['title'].'
+                    <span class="stars">
+                        <i class="material-icons">&#xE838;</i>
+                        <i class="material-icons">&#xE838;</i>
+                        <i class="material-icons">&#xE838;</i>
+                        <i class="material-icons">&#xE838;</i>
+                    </span>
+                </h3>
+                <!--<p>From <span class="price">$ 100 <small>/ per night</small></span></p>
+                <span class="rating"> 8 /10</span>-->
+            </a>
+        </li>';
+        }
+        # code...
+    }
+}
+
+
+
 
 
 function ft(){

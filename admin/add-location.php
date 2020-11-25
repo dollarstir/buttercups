@@ -10,7 +10,7 @@
     <meta name="description" content="Buttercups Tours">
     <meta name="keywords" content="Buttercups Tours">
     <meta name="Buttercups" content="PIXINVENT">
-    <title>Buttercups Tours - Add Activities</title>
+    <title>Buttercups Tours - Add Location</title>
     <link rel="apple-touch-icon" href="https://www.pixinvent.com/demo/frest-clean-bootstrap-admin-dashboard-template/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
@@ -241,18 +241,18 @@
     <div class="col-md-10 col-12">
       <div class="card">
         <div class="card-header">
-          <center><h4 class="card-title">ACTIVITY  FORM</h4></center>
+          <center><h4 class="card-title">LOCATION  FORM</h4></center>
         </div>
         <div class="card-content">
           <div class="card-body">
-            <form class="form form-horizontal" id="actfrm">
+            <form class="form form-horizontal" id="locfrm">
               <div class="form-body">
                 <div class="row">
                   <div class="col-md-4">
-                    <label>Name of Actitvity</label>
+                    <label>Location Title</label>
                   </div>
                   <div class="col-md-8 form-group">
-                    <input type="text" id="first-name" class="form-control" name="title" placeholder="activity">
+                    <input type="text" id="first-name" class="form-control" name="title" placeholder="name">
                   </div>
                   <!-- <div class="col-md-4">
                     <label>Email</label>
@@ -260,21 +260,21 @@
                   <div class="col-md-8 form-group">
                     <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Email">
                   </div> -->
-                  <div class="col-md-4">
-                    <label>Price in Dollars</label>
+                    <!-- <div class="col-md-4">
+                        <label>Price in Dollars</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="number" id="contact-info" class="form-control" name="price" placeholder="prcie">
+                    </div> -->
+                  <!-- <div class="col-md-4">
+                    <label>List Packackge</label>
                   </div>
                   <div class="col-md-8 form-group">
-                    <input type="number" id="contact-info" class="form-control" name="price" placeholder="prcie">
-                  </div>
-                  <div class="col-md-4">
-                    <label>Description</label>
-                  </div>
-                  <div class="col-md-8 form-group">
-                    <textarea   class="form-control" name="description" placeholder="describe the activity"></textarea>
-                  </div>
+                    <textarea   class="form-control" name="description" placeholder=" list what is involve in this  type . NB: separate them with comma's"></textarea>
+                  </div> -->
 
                   <div class="col-md-4">
-                    <label>Picture of Activity</label>
+                    <label>Thumbnail of Location</label>
                   </div>
                   <div class="col-md-8 form-group">
                   <div class="custom-file">
@@ -282,6 +282,33 @@
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                       </div>
                   </div>
+
+
+
+                  <div class="col-md-4">
+                    <label>Other Pictures of Location</label>
+                  </div>
+                  <div class="col-md-8 form-group">
+                  <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="mpics[]" multiple>
+                        <label class="custom-file-label" for="inputGroupFile01">Add Multiple images</label>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+                    <label>Select type of Stay:</label>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <div class="form-group" data-select2-id="116">
+                        <select class="select2-theme form-control select2-hidden-accessible" id="select2-theme" data-select2-id="select2-theme" tabindex="-1" aria-hidden="true" name="ltype">
+                   
+                      <option value="Short Stay" data-select2-id="103">Short Stay </option>
+                      <option value="Long Stay" data-select2-id="127">Long Stay</option>
+                     
+                    
+                        </select>
+                    </div>
+                    
+                  </div> -->
 
 
                   

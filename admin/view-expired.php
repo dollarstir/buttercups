@@ -11,7 +11,7 @@
 	<meta name="description" content="Buttercups - Online Booking">
     <meta name="author" content="favorchapel.com">
     
-    <title>Buttercup Tour - Activities </title>
+    <title>Buttercup Tour - Expired Bookings </title>
     <link rel="apple-touch-icon" href="https://www.pixinvent.com/demo/frest-clean-bootstrap-admin-dashboard-template/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
@@ -1207,17 +1207,19 @@
                             <table class="table table-striped dataex-html5-selectors">
                                 <thead>
                                     <tr>
+                                        <th>Booking ID</th>
                                         <th>Name</th>
-                                        <th>Price</th>
-                                        <th>description</th>
+                                        <th>Days</th>
+                                        <th>Package Type</th>
+                                        <th>Package Name</th>
                                         <th>Picture</th>
-                                        <th>Date Added</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    <?php activities();?>
+                                    <?php ExpiredBookings();?>
                                     <!-- <tr>
                                         <td>Tiger Nixon</td>
                                         <td>System Architect</td>
@@ -1230,11 +1232,13 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
+                                        <th>Booking ID</th>
                                         <th>Name</th>
-                                        <th>Price</th>
-                                        <th>description</th>
+                                        <th>Days</th>
+                                        <th>Package Type</th>
+                                        <th>Package Name</th>
                                         <th>Picture</th>
-                                        <th>Date Added</th>
+                                        <th>status</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
