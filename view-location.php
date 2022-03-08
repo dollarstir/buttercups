@@ -305,7 +305,7 @@
 	
 	<!-- TEMPLATE STYLES -->
 	<div id="template-styles">
-		<h2>Template Styles <a href="hotel.html#"><img class="s-s-icon" src="images/settings.png" alt="Style switcher" /></a></h2>
+		<h2>Template Styles </h2>
 		<div>
 		<h3>Colors</h3>
 			<ul class="colors" >

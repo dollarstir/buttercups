@@ -54,28 +54,28 @@ function hbar(){
     echo'<header class="header">
     <div class="wrap">
         <!--logo-->
-        <div class="logo"><a href="index.html" title="Book Your Travel"><img src="images/txt/logo.png" alt="Book Your Travel" /></a></div>
+        <div class="logo"><a href="index.php" title="Book Your Travel"><img src="images/txt/logo.png" alt="Book Your Travel" /></a></div>
         <!--//logo-->
         
         <!--ribbon-->
         <div class="ribbon">
             <nav>
                 <ul class="profile-nav">
-                    <li class="active"><a href="index.html#" title="My Account">My Account</a></li>
-                    <li><a href="login.html" title="Login">Login</a></li>
-                    <li><a href="my_account.html" title="Settings">Settings</a></li>
+                    <li class="active"><a href="#" title="My Account">My Account</a></li>
+                    <!--<li><a href="login.html" title="Login">Login</a></li>
+                    <li><a href="my_account.html" title="Settings">Settings</a></li>-->
                 </ul>
                 <ul class="lang-nav">
-                    <li class="active"><a href="index.html#" title="English (US)">English (US)</a></li>
-                    <li><a href="index.html#" title="English (UK)">English (UK)</a></li>
-                    <li><a href="index.html#" title="Deutsch">Deutsch</a></li>
-                    <li><a href="index.html#" title="Italiano">Italiano</a></li>
-                    <li><a href="index.html#" title="Русский">Русский</a></li>
+                    <li class="active"><a href="index.php#" title="English (US)">English (US)</a></li>
+                    <li><a href="#" title="English (UK)">English (UK)</a></li>
+                    <li><a href="#" title="Deutsch">Deutsch</a></li>
+                    <li><a href="#" title="Italiano">Italiano</a></li>
+                    <li><a href="#" title="Русский">Русский</a></li>
                 </ul>
                 <ul class="currency-nav">
-                    <li class="active"><a href="index.html#" title="$US Dollar">$US Dollar</a></li>
-                    <li><a href="index.html#" title="€ Euro">€ Euro</a></li>
-                    <li><a href="index.html#" title="£ Pound">£ Pound</a></li>
+                    <li class="active"><a href="index.php#" title="$US Dollar">$US Dollar</a></li>
+                    <li><a href="index.php#" title="€ Euro">€ Euro</a></li>
+                    <li><a href="index.php#" title="£ Pound">£ Pound</a></li>
                 </ul>
             </nav>
         </div>
@@ -83,7 +83,7 @@ function hbar(){
         
         <!--search-->
         <div class="search">
-            <form id="search-form" method="get" action="search-form">
+            <form id="search-form" method="get" action="#">
                 <input type="search" placeholder="Search entire site here" name="site_search" id="site_search" /> 
                 <input type="submit" id="submit-site-search" value="submit-site-search" name="submit-site-search"/>
             </form>
@@ -247,7 +247,7 @@ function Accomo(){
                      <a href="#">More info</a>
                 </p>
             </div>
-            <a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
+            <a href="ba1.php?actid='.$row['id'].'&type=accomodation" title="Book now" class="gradient-button">Book now</a>
         </div>
     </article>';
 
@@ -299,7 +299,7 @@ function Tour(){
                      <a href="#">More info</a>
                 </p>
             </div>
-            <a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
+            <a href="ba1.php?actid='.$row['id'].'&type=Tour-Service" title="Book now" class="gradient-button">Book now</a>
         </div>
     </article>';
 

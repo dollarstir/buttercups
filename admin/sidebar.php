@@ -86,6 +86,13 @@ echo ' <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" d
        
       </ul>
     </li>
+
+
+
+
+    <li class=" nav-item"><a href="logout.php"><i class="bx bx-power-off mr-50"></i>Logout</a>
+      
+    </li>
     
   </ul>
 </div>

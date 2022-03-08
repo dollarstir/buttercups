@@ -151,6 +151,35 @@ if(isset($_GET['dollar'])){
         }
 
 
+
+
+
+        if($_GET['dollar']=="login"){
+        
+            include 'db.php';
+            extract($_POST);
+            // $desco =mysqli_real_escape_string($conn,$description);
+            if (empty($email)) {
+                echo '<div class="alert alert-danger mb-2" role="alert" id="myalert">
+                    enter email
+                    </div>';
+                # code...
+            }
+            elseif(empty($password)){
+    
+                echo '<div class="alert alert-danger mb-2" role="alert" id="myalert">
+                enter password   
+                </div>';
+    
+            }
+            else{
+                // $dd = date("jS F, Y");
+    
+                Adminlogin($email,$password);
+            }
+        }
+
+
 }
 
 ?>

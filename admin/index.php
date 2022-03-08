@@ -1,4 +1,20 @@
-<?php include 'core.php';?>
+<?php 
+session_start();
+include 'core.php';
+
+
+if (!isset($_SESSION['id']))
+
+{
+
+
+    echo '<script>window.location="auth_login.php"</script>';
+
+}
+
+
+
+?>
 <!DOCTYPE html>
 
 <html class="loading" lang="en" data-textdirection="ltr">

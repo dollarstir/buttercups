@@ -550,4 +550,37 @@ function ExpiredBookings(){
 }
 
 
+function Adminlogin($email,$password){
+    include 'db.php';
+    $log = mysqli_query($conn,"SELECT * FROM admin  WHERE email='$email' AND  password='$password' ");
+    if($row=mysqli_fetch_array($log)){
+        session_start();
+        $myid =$row['id'];
+        $_SESSION['id']=$myid;
+        $_SESSION['name']=$row['name'];
+        $_SESSION['email']=$row['email'];
+
+        echo '<div class="alert alert-success mb-2" role="alert" id="myalert">
+                login successful   
+                </div>
+                
+                <script>
+                setTimeout(() => {
+
+                    window.location= "home.php";
+                    
+                }, 5000);
+                </script>
+                ';
+
+    }
+    else{
+
+        echo '<div class="alert alert-danger mb-2" role="alert" id="myalert">
+                Wrong credentials   
+                </div>';
+    }
+}
+
+
 ?>

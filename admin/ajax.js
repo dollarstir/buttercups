@@ -281,5 +281,31 @@ $(function(){
         $.ajax(delopt);
     })
 
+
+    $("#logfrm").submit(function (e) {
+
+        e.preventDefault();
+
+        var mf = {
+            url: "actions.php?dollar=login",
+            type: 'post',
+            data : new FormData(this),
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: myloader,
+            success: myresponse
+
+
+        };
+
+        $.ajax(mf);
+        
+
+        
+    });
+
+   
+
     
 })
